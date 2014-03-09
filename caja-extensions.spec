@@ -34,7 +34,7 @@ Extensions for Caja (MATE file manager).
 %description -l pl.UTF-8
 Rozszerzenia dla zarządcy plików Caja ze środowiska MATE.
 
-%package gksu
+%package -n caja-extension-gksu
 Summary:	gksu extension for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenie gksu dla zarządcy plików Caja ze środowiska MATE
 Requires:	gksu
@@ -42,15 +42,15 @@ Requires(post,postun):	glib2 >= 1:2.14.0
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	mate-file-manager-extension-gksu
 
-%description gksu
+%description -n caja-extension-gksu
 gksu extension for Caja (MATE file manager). It's a fork of
 nautilus-gksu extension.
 
-%description gksu -l pl.UTF-8
+%description -n caja-extension-gksu -l pl.UTF-8
 Rozszerzenie gksu dla zarządcy plików Caja ze środowiska MATE. Jest to
 odgałęzienie rozszerzenia nautilus-gksu.
 
-%package image-converter
+%package -n caja-extension-image-converter
 Summary:	Caja (MATE file manager) extension to mass resize or rotate images
 Summary(pl.UTF-8):	Rozszerzenie zarządcy plików Caja pozwalające masowo zmieniać rozmiar i obracać pliki graficzne
 Requires:	%{name} = %{version}-%{release}
@@ -61,13 +61,13 @@ Suggests:	ImageMagick-coder-png
 Suggests:	ImageMagick-coder-tiff
 Obsoletes:	mate-file-manager-extension-image-converter
 
-%description image-converter
+%description -n caja-extension-image-converter
 The Caja-Image-Converter extension allows you to resize/rotate images
 from Caja (MATE file manager).
 
 Caja-Image-Converter is a fork of Nautilus-Image-Converter.
 
-%description image-converter -l pl.UTF-8
+%description -n caja-extension-image-converter -l pl.UTF-8
 Rozszerzenie Caja-Image-Converter pozwala na zmianę rozmiaru i
 obracanie rozmiarów obrazów z poziomu zarządców plików Caja,
 przeznaczonego dla środowiska MATE.
@@ -75,7 +75,7 @@ przeznaczonego dla środowiska MATE.
 Caja-Image-Converter to odgałęzienie rozszerzenia
 Nautilus-Image-Converter.
 
-%package open-terminal
+%package -n caja-extension-open-terminal
 Summary:	open-terminal extension for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenie open-terminal dla zarządcy plików Caja ze środowiska MATE
 Requires(post,postun):	glib2 >= 1:2.14.0
@@ -83,19 +83,19 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	mate-terminal
 Obsoletes:	mate-file-manager-extension-open-terminal
 
-%description open-terminal
+%description -n caja-extension-open-terminal
 This is a proof-of-concept Caja extension which allows you to open a
 terminal in arbitrary local folders.
 
 This is a fork of nautilus-open-terminal extension.
 
-%description open-terminal -l pl.UTF-8
+%description -n caja-extension-open-terminal -l pl.UTF-8
 Rozszerzenie zarządcy plików Caja, pozwalające na otwieranie terminala
 w dowolnych folderach lokalnych.
 
 Jest to odgałęzienie rozszerzenia nautilus-open-terminal.
 
-%package sendto
+%package -n caja-extension-sendto
 Summary:	Caja context menu for sending files
 Summary(pl.UTF-8):	Menu kontekstowe zarządcy plików Caja do wysyłania plików
 Requires(post,postun):	glib2 >= 1:2.26.0
@@ -103,89 +103,89 @@ Requires:	%{name} = %{version}-%{release}
 Suggests:	engrampa
 Obsoletes:	mate-file-manager-sendto
 
-%description sendto
+%description -n caja-extension-sendto
 Caja sendto provides a Caja context menu for sending files via other
 desktop applications. It's a fork of nautilus-sendto from GNOME.
 
-%description sendto -l pl.UTF-8
+%description -n caja-extension-sendto -l pl.UTF-8
 Caja sendto dostarcza menu kontekstowe dla zarządcy plików Caja do
 wysyłania plików poprzez inne aplikacje biurkowe. Jest to odgałęzienie
 programu nautilus-sendto z GNOME.
 
-%package sendto-burn
-Summary:	caja-extensions-sendto CD/DVD Creator plugin
-Summary(pl.UTF-8):	Wtyczka caja-extensions-sendto dla kreatora CD/DVD
+%package -n caja-extension-sendto-burn
+Summary:	caja-extension-sendto CD/DVD Creator plugin
+Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla kreatora CD/DVD
 Requires:	%{name}-sendto = %{version}-%{release}
 Requires:	brasero
 Obsoletes:	mate-file-manager-sendto-burn
 
-%description sendto-burn
-A caja-extensions-sendto plugin for sending files to CD/DVD Creator
+%description -n caja-extension-sendto-burn
+A caja-extension-sendto plugin for sending files to CD/DVD Creator
 (Brasero).
 
-%description sendto-burn -l pl.UTF-8
+%description -n caja-extension-sendto-burn -l pl.UTF-8
 Wtyczka mate-file-manager-sendto do wysyłania plików do kreatora
 CD/DVD (Brasero).
 
-%package sendto-emailclient
-Summary:	caja-extensions-sendto e-mail client plugin
-Summary(pl.UTF-8):	Wtyczka caja-extensions-sendto dla klienta poczty elektronicznej
+%package -n caja-extension-sendto-emailclient
+Summary:	caja-extension-sendto e-mail client plugin
+Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla klienta poczty elektronicznej
 Requires:	%{name}-sendto = %{version}-%{release}
 Obsoletes:	mate-file-manager-sendto-emailclient
 
-%description sendto-emailclient
-A caja-extensions-sendto plugin for sending files via e-mail client.
+%description -n caja-extension-sendto-emailclient
+A caja-extension-sendto plugin for sending files via e-mail client.
 Supported e-mail clients are: Evolution 2.0 through 3.0, Balsa,
 Thunderbird/Icedove, Seamonkey/Iceape, Sylpheed/Claws Mail, Anjal.
 
-%description sendto-emailclient -l pl.UTF-8
-Wtyczka caja-extensions-sendto do wysyłania plików poprzez klienta
+%description -n caja-extension-sendto-emailclient -l pl.UTF-8
+Wtyczka caja-extension-sendto do wysyłania plików poprzez klienta
 poczty elektronicznej. Obsługiwane są: Evolution 2.0 do 3.0, Balsa,
 Thunderbird/Icedove, Seamonkey/Iceape, Sylpheed/Claws Mail, Anjal.
 
-%package sendto-gajim
-Summary:	caja-extensions-sendto Gajim plugin
-Summary(pl.UTF-8):	Wtyczka caja-extensions-sendto dla Gajima
+%package -n caja-extension-sendto-gajim
+Summary:	caja-extension-sendto Gajim plugin
+Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla Gajima
 Requires:	%{name}-sendto = %{version}-%{release}
 Requires:	dbus >= 1.0.2
 Requires:	gajim >= 0.10.1
 Obsoletes:	mate-file-manager-sendto-gajim
 
-%description sendto-gajim
-A caja-extensions-sendto plugin for sending files via Gajim.
+%description -n caja-extension-sendto-gajim
+A caja-extension-sendto plugin for sending files via Gajim.
 
-%description sendto-gajim -l pl.UTF-8
+%description -n caja-extension-sendto-gajim -l pl.UTF-8
 Wtyczka caja-extension-sentdo do wysyłania plików poprzez Gajima.
 
-%package sendto-pidgin
-Summary:	caja-extensions-sendto Pidgin plugin
-Summary(pl.UTF-8):	Wtyczka caja-extensions-sendto dla Pidgina
+%package -n caja-extension-sendto-pidgin
+Summary:	caja-extension-sendto Pidgin plugin
+Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla Pidgina
 Requires:	%{name}-sendto = %{version}-%{release}
 Requires:	pidgin >= 2.0
 Obsoletes:	mate-file-manager-sendto-pidgin
 
-%description sendto-pidgin
-A caja-extensions-sendto plugin for sending files via Pidgin.
+%description -n caja-extension-sendto-pidgin
+A caja-extension-sendto plugin for sending files via Pidgin.
 
-%description sendto-pidgin -l pl.UTF-8
+%description -n caja-extension-sendto-pidgin -l pl.UTF-8
 Wtyczka caja-extension-sentdo do wysyłania plików poprzez Pidgina.
 
-%package sendto-upnp
-Summary:	caja-extensions-sendto UPnP media server plugin
-Summary(pl.UTF-8):	Wtyczka caja-extensions-sendto dla serwera multimediów UPnP
+%package -n caja-extension-sendto-upnp
+Summary:	caja-extension-sendto UPnP media server plugin
+Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla serwera multimediów UPnP
 Requires:	%{name}-sendto = %{version}-%{release}
 Requires:	gupnp-tools
 Obsoletes:	mate-file-manager-sendto-upnp
 
-%description sendto-upnp
-A caja-extensions-sendto plugin for sending files to UPnP media
+%description -n caja-extension-sendto-upnp
+A caja-extension-sendto plugin for sending files to UPnP media
 server.
 
-%description sendto-upnp -l pl.UTF-8
-Wtyczka caja-extensions-sendto do wysyłania plików do serwera
+%description -n caja-extension-sendto-upnp -l pl.UTF-8
+Wtyczka caja-extension-sendto do wysyłania plików do serwera
 multimediów UPnP.
 
-%package sendto-devel
+%package -n caja-extension-sendto-devel
 Summary:	Header files for caja-sendto extensions
 Summary(pl.UTF-8):	Pliki nagłówkowe dla rozszerzeń caja-sendto
 Group:		Development/Libraries
@@ -194,38 +194,38 @@ Requires:	glib2-devel >= 1:2.26.0
 Requires:	gtk+2-devel >= 2:2.18
 Obsoletes:	mate-file-manager-sendto-devel
 
-%description sendto-devel
+%description -n caja-extension-sendto-devel
 Header files for caja-sendto extensions.
 
-%description sendto-devel -l pl.UTF-8
+%description -n caja-extension-sendto-devel -l pl.UTF-8
 Pliki nagłówkowe dla rozszerzeń caja-sendto.
 
-%package sendto-apidocs
+%package -n caja-extension-sendto-apidocs
 Summary:	caja-sendto API documentation
 Summary(pl.UTF-8):	Dokumentacja API caja-sendto
 Group:		Documentation
 Requires:	gtk-doc-common
 Obsoletes:	mate-file-manager-sendto-apidocs
 
-%description sendto-apidocs
+%description -n caja-extension-sendto-apidocs
 caja-sendto API documentation.
 
-%description sendto-apidocs -l pl.UTF-8
+%description -n caja-extension-sendto-apidocs -l pl.UTF-8
 Dokumentacja API caja-sendto.
 
-%package share
+%package -n caja-extension-share
 Summary:	Share extension for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenie share dla zarządcy plików Caja ze środowiska MATE
 Requires:	%{name} = %{version}-%{release}
 Requires:	samba-client
 Obsoletes:	mate-file-manager-extension-share
 
-%description share
+%description -n caja-extension-share
 mate-file-manager share extension allows you to quickly share a folder
 from the MATE Caja file manager without requiring root access. It uses
 Samba, so your folders can be accessed by any operating system.
 
-%description share -l pl.UTF-8
+%description -n caja-extension-share -l pl.UTF-8
 Rozszerzenie share dla mate-file-managera pozwala szybko udostępnić
 folder z poziomu zarządcy plików Caja (ze środowiska MATE) bez dostępu
 do uprawnień administratora. Wykorzystuje Sambę, więc foldery są
@@ -277,22 +277,22 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	gksu
+%post	-n caja-extension-gksu
 %glib_compile_schemas
 
-%postun	gksu
+%postun	-n caja-extension-gksu
 %glib_compile_schemas
 
-%post	open-terminal
+%post	-n caja-extension-open-terminal
 %glib_compile_schemas
 
-%postun	open-terminal
+%postun	-n caja-extension-open-terminal
 %glib_compile_schemas
 
-%post	sendto
+%post	-n caja-extension-sendto
 %glib_compile_schemas
 
-%postun	sendto
+%postun	-n caja-extension-sendto
 %glib_compile_schemas
 
 %files -f caja-extensions.lang
@@ -300,22 +300,22 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %dir %{_datadir}/caja-extensions
 
-%files gksu
+%files -n caja-extension-gksu
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-gksu.so
 
-%files image-converter
+%files -n caja-extension-image-converter
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-image-converter.so
 %{_datadir}/caja-extensions/caja-image-resize.ui
 %{_datadir}/caja-extensions/caja-image-rotate.ui
 
-%files open-terminal
+%files -n caja-extension-open-terminal
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-open-terminal.so
 %{_datadir}/glib-2.0/schemas/org.mate.caja-open-terminal.gschema.xml
 
-%files sendto
+%files -n caja-extension-sendto
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/caja-sendto
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-sendto.so
@@ -327,37 +327,37 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/caja-extensions/caja-sendto.ui
 %{_mandir}/man1/caja-sendto.1*
 
-%files sendto-burn
+%files -n caja-extension-sendto-burn
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja-sendto/plugins/libnstburn.so
 
-%files sendto-emailclient
+%files -n caja-extension-sendto-emailclient
 %defattr(644,root,root,755)
 %attr(755,root,root)
 %{_libdir}/caja-sendto/plugins/libnstemailclient.so
 
-%files sendto-gajim
+%files -n caja-extension-sendto-gajim
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja-sendto/plugins/libnstgajim.so
 
-%files sendto-pidgin
+%files -n caja-extension-sendto-pidgin
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja-sendto/plugins/libnstpidgin.so
 
-%files sendto-upnp
+%files -n caja-extension-sendto-upnp
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja-sendto/plugins/libnstupnp.so
 
-%files sendto-devel
+%files -n caja-extension-sendto-devel
 %defattr(644,root,root,755)
 %{_includedir}/caja-sendto
 %{_pkgconfigdir}/caja-sendto.pc
 
-%files sendto-apidocs
+%files -n caja-extension-sendto-apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/caja-sendto
 
-%files share
+%files -n caja-extension-share
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-share.so
 %{_datadir}/caja-extensions/share-dialog.ui
