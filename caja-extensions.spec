@@ -2,7 +2,7 @@ Summary:	Extensions for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenia dla zarządcy plików Caja ze środowiska MATE
 Name:		caja-extensions
 Version:	1.8.0
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.8/%{name}-%{version}.tar.xz
@@ -115,7 +115,7 @@ programu nautilus-sendto z GNOME.
 %package -n caja-extension-sendto-burn
 Summary:	caja-extension-sendto CD/DVD Creator plugin
 Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla kreatora CD/DVD
-Requires:	%{name}-sendto = %{version}-%{release}
+Requires:	caja-extension-sendto = %{version}-%{release}
 Requires:	brasero
 Obsoletes:	mate-file-manager-sendto-burn
 
@@ -130,7 +130,7 @@ CD/DVD (Brasero).
 %package -n caja-extension-sendto-emailclient
 Summary:	caja-extension-sendto e-mail client plugin
 Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla klienta poczty elektronicznej
-Requires:	%{name}-sendto = %{version}-%{release}
+Requires:	caja-extension-sendto = %{version}-%{release}
 Obsoletes:	mate-file-manager-sendto-emailclient
 
 %description -n caja-extension-sendto-emailclient
@@ -146,7 +146,7 @@ Thunderbird/Icedove, Seamonkey/Iceape, Sylpheed/Claws Mail, Anjal.
 %package -n caja-extension-sendto-gajim
 Summary:	caja-extension-sendto Gajim plugin
 Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla Gajima
-Requires:	%{name}-sendto = %{version}-%{release}
+Requires:	caja-extension-sendto = %{version}-%{release}
 Requires:	dbus >= 1.0.2
 Requires:	gajim >= 0.10.1
 Obsoletes:	mate-file-manager-sendto-gajim
@@ -160,7 +160,7 @@ Wtyczka caja-extension-sentdo do wysyłania plików poprzez Gajima.
 %package -n caja-extension-sendto-pidgin
 Summary:	caja-extension-sendto Pidgin plugin
 Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla Pidgina
-Requires:	%{name}-sendto = %{version}-%{release}
+Requires:	caja-extension-sendto = %{version}-%{release}
 Requires:	pidgin >= 2.0
 Obsoletes:	mate-file-manager-sendto-pidgin
 
@@ -173,7 +173,7 @@ Wtyczka caja-extension-sentdo do wysyłania plików poprzez Pidgina.
 %package -n caja-extension-sendto-upnp
 Summary:	caja-extension-sendto UPnP media server plugin
 Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla serwera multimediów UPnP
-Requires:	%{name}-sendto = %{version}-%{release}
+Requires:	caja-extension-sendto = %{version}-%{release}
 Requires:	gupnp-tools
 Obsoletes:	mate-file-manager-sendto-upnp
 
