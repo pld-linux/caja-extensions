@@ -2,7 +2,7 @@ Summary:	Extensions for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenia dla zarządcy plików Caja ze środowiska MATE
 Name:		caja-extensions
 Version:	1.8.0
-Release:	3
+Release:	4
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.8/%{name}-%{version}.tar.xz
@@ -100,6 +100,11 @@ Summary:	Caja context menu for sending files
 Summary(pl.UTF-8):	Menu kontekstowe zarządcy plików Caja do wysyłania plików
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires:	%{name} = %{version}-%{release}
+Suggests:	caja-extension-sendto-burn
+Suggests:	caja-extension-sendto-emailclient
+Suggests:	caja-extension-sendto-gajim
+Suggests:	caja-extension-sendto-pidgin
+Suggests:	caja-extension-sendto-upnp
 Suggests:	engrampa
 Obsoletes:	mate-file-manager-sendto
 
@@ -115,8 +120,8 @@ programu nautilus-sendto z GNOME.
 %package -n caja-extension-sendto-burn
 Summary:	caja-extension-sendto CD/DVD Creator plugin
 Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla kreatora CD/DVD
-Requires:	caja-extension-sendto = %{version}-%{release}
 Requires:	brasero
+Requires:	caja-extension-sendto = %{version}-%{release}
 Obsoletes:	mate-file-manager-sendto-burn
 
 %description -n caja-extension-sendto-burn
@@ -178,8 +183,7 @@ Requires:	gupnp-tools
 Obsoletes:	mate-file-manager-sendto-upnp
 
 %description -n caja-extension-sendto-upnp
-A caja-extension-sendto plugin for sending files to UPnP media
-server.
+A caja-extension-sendto plugin for sending files to UPnP media server.
 
 %description -n caja-extension-sendto-upnp -l pl.UTF-8
 Wtyczka caja-extension-sendto do wysyłania plików do serwera
