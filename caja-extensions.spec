@@ -2,7 +2,7 @@ Summary:	Extensions for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenia dla zarządcy plików Caja ze środowiska MATE
 Name:		caja-extensions
 Version:	1.8.0
-Release:	4
+Release:	5
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.8/%{name}-%{version}.tar.xz
@@ -210,6 +210,9 @@ Summary(pl.UTF-8):	Dokumentacja API caja-sendto
 Group:		Documentation
 Requires:	gtk-doc-common
 Obsoletes:	mate-file-manager-sendto-apidocs
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description -n caja-extension-sendto-apidocs
 caja-sendto API documentation.
