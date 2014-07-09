@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	gtk3		# use GTK+ 3.x instead of 2.x
+
 Summary:	Extensions for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenia dla zarządcy plików Caja ze środowiska MATE
 Name:		caja-extensions
@@ -10,22 +14,27 @@ Source0:	http://pub.mate-desktop.org/releases/1.8/%{name}-%{version}.tar.xz
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	caja-devel >= 1.1.0
+BuildRequires:	caja-devel >= 1.7.0
 BuildRequires:	dbus-devel >= 1.0.2
 BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	gettext-devel >= 0.10.40
-BuildRequires:	glib2-devel >= 1:2.14.0
+BuildRequires:	glib2-devel >= 1:2.28.0
+%{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2:2.18.0}
+%{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0.0}
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	gupnp-devel >= 0.13
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	mate-common
+BuildRequires:	mate-desktop-devel >= 1.7.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	caja >= 1.1.0
+Requires:	caja >= 1.7.0
 Requires:	glib2 >= 1:2.28.0
+%{!?with_gtk3:Requires:	gtk+2 >= 2:2.18.0}
+%{?with_gtk3:Requires:	gtk+3 >= 3.0.0}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,7 +47,7 @@ Rozszerzenia dla zarządcy plików Caja ze środowiska MATE.
 Summary:	gksu extension for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenie gksu dla zarządcy plików Caja ze środowiska MATE
 Requires:	gksu
-Requires(post,postun):	glib2 >= 1:2.14.0
+Requires(post,postun):	glib2 >= 1:2.28.0
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	mate-file-manager-extension-gksu
 
@@ -78,8 +87,9 @@ Nautilus-Image-Converter.
 %package -n caja-extension-open-terminal
 Summary:	open-terminal extension for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenie open-terminal dla zarządcy plików Caja ze środowiska MATE
-Requires(post,postun):	glib2 >= 1:2.14.0
+Requires(post,postun):	glib2 >= 1:2.28.0
 Requires:	%{name} = %{version}-%{release}
+Requires:	mate-desktop-libs >= 1.7.0
 Requires:	mate-terminal
 Obsoletes:	mate-file-manager-extension-open-terminal
 
@@ -98,8 +108,11 @@ Jest to odgałęzienie rozszerzenia nautilus-open-terminal.
 %package -n caja-extension-sendto
 Summary:	Caja context menu for sending files
 Summary(pl.UTF-8):	Menu kontekstowe zarządcy plików Caja do wysyłania plików
-Requires(post,postun):	glib2 >= 1:2.26.0
+Requires(post,postun):	glib2 >= 1:2.28.0
 Requires:	%{name} = %{version}-%{release}
+Requires:	dbus-glib >= 0.60
+Requires:	dbus-libs >= 1.0.2
+Requires:	gupnp >= 0.13
 Suggests:	caja-extension-sendto-burn
 Suggests:	caja-extension-sendto-emailclient
 Suggests:	caja-extension-sendto-gajim
@@ -160,7 +173,7 @@ Obsoletes:	mate-file-manager-sendto-gajim
 A caja-extension-sendto plugin for sending files via Gajim.
 
 %description -n caja-extension-sendto-gajim -l pl.UTF-8
-Wtyczka caja-extension-sentdo do wysyłania plików poprzez Gajima.
+Wtyczka caja-extension-sendto do wysyłania plików poprzez Gajima.
 
 %package -n caja-extension-sendto-pidgin
 Summary:	caja-extension-sendto Pidgin plugin
@@ -173,7 +186,7 @@ Obsoletes:	mate-file-manager-sendto-pidgin
 A caja-extension-sendto plugin for sending files via Pidgin.
 
 %description -n caja-extension-sendto-pidgin -l pl.UTF-8
-Wtyczka caja-extension-sentdo do wysyłania plików poprzez Pidgina.
+Wtyczka caja-extension-sendto do wysyłania plików poprzez Pidgina.
 
 %package -n caja-extension-sendto-upnp
 Summary:	caja-extension-sendto UPnP media server plugin
@@ -194,8 +207,9 @@ Summary:	Header files for caja-sendto extensions
 Summary(pl.UTF-8):	Pliki nagłówkowe dla rozszerzeń caja-sendto
 Group:		Development/Libraries
 # doesn't require base
-Requires:	glib2-devel >= 1:2.26.0
-Requires:	gtk+2-devel >= 2:2.18
+Requires:	glib2-devel >= 1:2.28.0
+%{!?with_gtk3:Requires:	gtk+2-devel >= 2:2.18.0}
+%{?with_gtk3:Requires:	gtk+3-devel >= 3.0.0}
 Obsoletes:	mate-file-manager-sendto-devel
 
 %description -n caja-extension-sendto-devel
@@ -238,7 +252,6 @@ folder z poziomu zarządcy plików Caja (ze środowiska MATE) bez dostępu
 do uprawnień administratora. Wykorzystuje Sambę, więc foldery są
 dostępne z dowolnego systemu operacyjnego.
 
-
 %prep
 %setup -q
 
@@ -254,12 +267,13 @@ dostępne z dowolnego systemu operacyjnego.
 	--disable-schemas-compile \
 	--disable-silent-rules \
 	--disable-static \
-	--enable-gtk-doc \
 	--enable-gksu \
+	--enable-gtk-doc \
 	--enable-image-converter \
 	--enable-open-terminal \
 	--enable-sendto \
 	--enable-share \
+	%{?with_gtk3:--with-gtk=3.0} \
 	--with-html-dir=%{_gtkdocdir}
 
 %{__make}
@@ -272,8 +286,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/caja/extensions-2.0/*.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/caja-sendto/plugins/*.la
-
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/cmn
 
 # mate < 1.5 did not exist in PLD, avoid dependency on mate-conf
 %{__rm} $RPM_BUILD_ROOT%{_datadir}/MateConf/gsettings/caja-open-terminal.convert
