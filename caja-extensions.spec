@@ -5,12 +5,12 @@
 Summary:	Extensions for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenia dla zarządcy plików Caja ze środowiska MATE
 Name:		caja-extensions
-Version:	1.8.0
-Release:	5
+Version:	1.10.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.8/%{name}-%{version}.tar.xz
-# Source0-md5:	bc56df2c6b0445b574040222b40813bd
+Source0:	http://pub.mate-desktop.org/releases/1.10/%{name}-%{version}.tar.xz
+# Source0-md5:	35b66b8f9c033c32ce0077b24a0a3b88
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
@@ -18,8 +18,8 @@ BuildRequires:	caja-devel >= 1.7.0
 BuildRequires:	dbus-devel >= 1.0.2
 BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	gettext-tools >= 0.10.40
-BuildRequires:	glib2-devel >= 1:2.28.0
-%{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2:2.18.0}
+BuildRequires:	glib2-devel >= 1:2.36.0
+%{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2:2.24.0}
 %{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0.0}
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	gupnp-devel >= 0.13
@@ -32,8 +32,8 @@ BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	caja >= 1.7.0
-Requires:	glib2 >= 1:2.28.0
-%{!?with_gtk3:Requires:	gtk+2 >= 2:2.18.0}
+Requires:	glib2 >= 1:2.36.0
+%{!?with_gtk3:Requires:	gtk+2 >= 2:2.24.0}
 %{?with_gtk3:Requires:	gtk+3 >= 3.0.0}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -47,7 +47,7 @@ Rozszerzenia dla zarządcy plików Caja ze środowiska MATE.
 Summary:	gksu extension for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenie gksu dla zarządcy plików Caja ze środowiska MATE
 Requires:	gksu
-Requires(post,postun):	glib2 >= 1:2.28.0
+Requires(post,postun):	glib2 >= 1:2.36.0
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	mate-file-manager-extension-gksu
 
@@ -87,7 +87,7 @@ Nautilus-Image-Converter.
 %package -n caja-extension-open-terminal
 Summary:	open-terminal extension for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenie open-terminal dla zarządcy plików Caja ze środowiska MATE
-Requires(post,postun):	glib2 >= 1:2.28.0
+Requires(post,postun):	glib2 >= 1:2.36.0
 Requires:	%{name} = %{version}-%{release}
 Requires:	mate-desktop-libs >= 1.7.0
 Requires:	mate-terminal
@@ -108,7 +108,7 @@ Jest to odgałęzienie rozszerzenia nautilus-open-terminal.
 %package -n caja-extension-sendto
 Summary:	Caja context menu for sending files
 Summary(pl.UTF-8):	Menu kontekstowe zarządcy plików Caja do wysyłania plików
-Requires(post,postun):	glib2 >= 1:2.28.0
+Requires(post,postun):	glib2 >= 1:2.36.0
 Requires:	%{name} = %{version}-%{release}
 Requires:	dbus-glib >= 0.60
 Requires:	dbus-libs >= 1.0.2
@@ -142,7 +142,7 @@ A caja-extension-sendto plugin for sending files to CD/DVD Creator
 (Brasero).
 
 %description -n caja-extension-sendto-burn -l pl.UTF-8
-Wtyczka mate-file-manager-sendto do wysyłania plików do kreatora
+Wtyczka caja-extension-sendto do wysyłania plików do kreatora
 CD/DVD (Brasero).
 
 %package -n caja-extension-sendto-emailclient
@@ -207,8 +207,8 @@ Summary:	Header files for caja-sendto extensions
 Summary(pl.UTF-8):	Pliki nagłówkowe dla rozszerzeń caja-sendto
 Group:		Development/Libraries
 # doesn't require base
-Requires:	glib2-devel >= 1:2.28.0
-%{!?with_gtk3:Requires:	gtk+2-devel >= 2:2.18.0}
+Requires:	glib2-devel >= 1:2.36.0
+%{!?with_gtk3:Requires:	gtk+2-devel >= 2:2.24.0}
 %{?with_gtk3:Requires:	gtk+3-devel >= 3.0.0}
 Obsoletes:	mate-file-manager-sendto-devel
 
@@ -242,15 +242,27 @@ Requires:	samba-client
 Obsoletes:	mate-file-manager-extension-share
 
 %description -n caja-extension-share
-mate-file-manager share extension allows you to quickly share a folder
-from the MATE Caja file manager without requiring root access. It uses
-Samba, so your folders can be accessed by any operating system.
+Caja share extension allows you to quickly share a folder from the
+MATE Caja file manager without requiring root access. It uses Samba,
+so your folders can be accessed by any operating system.
 
 %description -n caja-extension-share -l pl.UTF-8
-Rozszerzenie share dla mate-file-managera pozwala szybko udostępnić
+Rozszerzenie share dla zarządcy plików Caja pozwala szybko udostępnić
 folder z poziomu zarządcy plików Caja (ze środowiska MATE) bez dostępu
 do uprawnień administratora. Wykorzystuje Sambę, więc foldery są
 dostępne z dowolnego systemu operacyjnego.
+
+%package -n caja-extension-wallpaper
+Summary:	Set as wallpaper extension for Caja (MATE file manager)
+Summary(pl.UTF-8):	Rozszerzenie ustawiania jako tapety dla zarządcy plików Caja ze środowiska MATE
+Requires:	%{name} = %{version}-%{release}
+
+%description -n caja-extension-wallpaper
+Caja wallpaper extension allows you to set a file as MATE wallpaper.
+
+%description -n caja-extension-wallpaper -l pl.UTF-8
+Rozszerzenie wallpaper dla zarządcy plików Caja pozwala ustawić plik
+jako tapetę w środowisku MATE.
 
 %prep
 %setup -q
@@ -322,17 +334,20 @@ rm -rf $RPM_BUILD_ROOT
 %files -n caja-extension-gksu
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-gksu.so
+%{_datadir}/caja/extensions/libcaja-gksu.caja-extension
 
 %files -n caja-extension-image-converter
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-image-converter.so
 %{_datadir}/caja-extensions/caja-image-resize.ui
 %{_datadir}/caja-extensions/caja-image-rotate.ui
+%{_datadir}/caja/extensions/libcaja-image-converter.caja-extension
 
 %files -n caja-extension-open-terminal
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-open-terminal.so
 %{_datadir}/glib-2.0/schemas/org.mate.caja-open-terminal.gschema.xml
+%{_datadir}/caja/extensions/libcaja-open-terminal.caja-extension
 
 %files -n caja-extension-sendto
 %defattr(644,root,root,755)
@@ -340,10 +355,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-sendto.so
 %dir %{_libdir}/caja-sendto
 %dir %{_libdir}/caja-sendto/plugins
-%attr(755,root,root)
-%{_libdir}/caja-sendto/plugins/libnstremovable_devices.so
+%attr(755,root,root) %{_libdir}/caja-sendto/plugins/libnstremovable_devices.so
 %{_datadir}/glib-2.0/schemas/org.mate.Caja.Sendto.gschema.xml
 %{_datadir}/caja-extensions/caja-sendto.ui
+%{_datadir}/caja/extensions/libcaja-sendto.caja-extension
 %{_mandir}/man1/caja-sendto.1*
 
 %files -n caja-extension-sendto-burn
@@ -380,3 +395,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-share.so
 %{_datadir}/caja-extensions/share-dialog.ui
+%{_datadir}/caja/extensions/libcaja-share.caja-extension
+
+%files -n caja-extension-wallpaper
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-wallpaper.so
+%{_datadir}/caja/extensions/libcaja-wallpaper.caja-extension
