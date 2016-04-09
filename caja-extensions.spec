@@ -5,12 +5,12 @@
 Summary:	Extensions for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenia dla zarządcy plików Caja ze środowiska MATE
 Name:		caja-extensions
-Version:	1.12.0
+Version:	1.14.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.12/%{name}-%{version}.tar.xz
-# Source0-md5:	35813af2413d1e5cf8c81c3958777b36
+Source0:	http://pub.mate-desktop.org/releases/1.14/%{name}-%{version}.tar.xz
+# Source0-md5:	d43891792beef546cc87b38914f64572
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
@@ -298,10 +298,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/caja/extensions-2.0/*.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/caja-sendto/plugins/*.la
-
-# mate < 1.5 did not exist in PLD, avoid dependency on mate-conf
-%{__rm} $RPM_BUILD_ROOT%{_datadir}/MateConf/gsettings/caja-open-terminal.convert
-%{__rm} $RPM_BUILD_ROOT%{_datadir}/MateConf/gsettings/caja-sendto-convert
 
 %find_lang caja-extensions
 
