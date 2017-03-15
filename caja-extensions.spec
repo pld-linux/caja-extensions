@@ -1,40 +1,34 @@
-#
-# Conditional build:
-%bcond_with	gtk3		# use GTK+ 3.x instead of 2.x
-
 Summary:	Extensions for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenia dla zarządcy plików Caja ze środowiska MATE
 Name:		caja-extensions
-Version:	1.16.0
+Version:	1.18.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.16/%{name}-%{version}.tar.xz
-# Source0-md5:	d29f02d742e090bdd4e63ed3ceb003fe
+Source0:	http://pub.mate-desktop.org/releases/1.18/%{name}-%{version}.tar.xz
+# Source0-md5:	b73eb4f45a0f3811e0f7807e9d95d68e
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	caja-devel >= 1.7.0
+BuildRequires:	caja-devel >= 1.17.1
 BuildRequires:	dbus-devel >= 1.0.2
 BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	gettext-tools >= 0.10.40
 BuildRequires:	glib2-devel >= 1:2.36.0
-%{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2:2.24.0}
-%{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0.0}
+BuildRequires:	gtk+3-devel >= 3.14
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	gupnp-devel >= 0.13
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	mate-common
-BuildRequires:	mate-desktop-devel >= 1.7.0
+BuildRequires:	mate-desktop-devel >= 1.17.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	caja >= 1.7.0
+Requires:	caja >= 1.17.1
 Requires:	glib2 >= 1:2.36.0
-%{!?with_gtk3:Requires:	gtk+2 >= 2:2.24.0}
-%{?with_gtk3:Requires:	gtk+3 >= 3.0.0}
+Requires:	gtk+3 >= 3.14
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -208,8 +202,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe dla rozszerzeń caja-sendto
 Group:		Development/Libraries
 # doesn't require base
 Requires:	glib2-devel >= 1:2.36.0
-%{!?with_gtk3:Requires:	gtk+2-devel >= 2:2.24.0}
-%{?with_gtk3:Requires:	gtk+3-devel >= 3.0.0}
+Requires:	gtk+3-devel >= 3.14
 Obsoletes:	mate-file-manager-sendto-devel
 
 %description -n caja-extension-sendto-devel
@@ -264,6 +257,17 @@ Caja wallpaper extension allows you to set a file as MATE wallpaper.
 Rozszerzenie wallpaper dla zarządcy plików Caja pozwala ustawić plik
 jako tapetę w środowisku MATE.
 
+%package -n caja-extension-xattr-tags
+Summary:	Xattr tags extension for Caja (MATE file manager)
+Summary(pl.UTF-8):	Rozszerzenie xattr tags dla zarządcy plików Caja ze środowiska MATE
+Requires:	%{name} = %{version}-%{release}
+
+%description -n caja-extension-xattr-tags
+Xattr tags extension for Caja (MATE file manager).
+
+%description -n caja-extension-xattr-tags -l pl.UTF-8
+Rozszerzenie xattr tags dla zarządcy plików Caja ze środowiska MATE.
+
 %prep
 %setup -q
 
@@ -285,7 +289,6 @@ jako tapetę w środowisku MATE.
 	--enable-open-terminal \
 	--enable-sendto \
 	--enable-share \
-	%{?with_gtk3:--with-gtk=3.0} \
 	--with-html-dir=%{_gtkdocdir}
 
 %{__make}
@@ -299,7 +302,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/caja/extensions-2.0/*.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/caja-sendto/plugins/*.la
 
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/frp
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{frp,ku_IQ}
 
 %find_lang caja-extensions
 
@@ -399,3 +402,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-wallpaper.so
 %{_datadir}/caja/extensions/libcaja-wallpaper.caja-extension
+
+%files -n caja-extension-xattr-tags
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-xattr-tags.so
+%{_datadir}/caja/extensions/libcaja-xattr-tags.caja-extension
