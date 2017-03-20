@@ -83,7 +83,7 @@ Summary:	open-terminal extension for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenie open-terminal dla zarządcy plików Caja ze środowiska MATE
 Requires(post,postun):	glib2 >= 1:2.36.0
 Requires:	%{name} = %{version}-%{release}
-Requires:	mate-desktop-libs >= 1.7.0
+Requires:	mate-desktop-libs >= 1.17.0
 Requires:	mate-terminal
 Obsoletes:	mate-file-manager-extension-open-terminal
 
