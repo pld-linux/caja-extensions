@@ -7,6 +7,7 @@ License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.22/%{name}-%{version}.tar.xz
 # Source0-md5:	7090545d9cd493681b656ea566fb392a
+Patch0:		%{name}-gupnp.patch
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
@@ -270,6 +271,7 @@ Rozszerzenie xattr tags dla zarządcy plików Caja ze środowiska MATE.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__gtkdocize}
