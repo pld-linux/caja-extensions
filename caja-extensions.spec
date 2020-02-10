@@ -1,24 +1,23 @@
 Summary:	Extensions for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenia dla zarządcy plików Caja ze środowiska MATE
 Name:		caja-extensions
-Version:	1.22.1
-Release:	2
+Version:	1.24.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.22/%{name}-%{version}.tar.xz
-# Source0-md5:	705bcbae66ed4497accff9c9bc65718d
+Source0:	http://pub.mate-desktop.org/releases/1.24/%{name}-%{version}.tar.xz
+# Source0-md5:	89db806a248cecbe55e6b79b33c14b37
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	caja-devel >= 1.21.3
 BuildRequires:	dbus-devel >= 1.0.2
 BuildRequires:	dbus-glib-devel >= 0.60
-BuildRequires:	gettext-tools >= 0.10.40
+BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.50.0
 BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	gupnp-devel >= 0.13
-BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	mate-common
 BuildRequires:	mate-desktop-devel >= 1.17.0
@@ -273,7 +272,6 @@ Rozszerzenie xattr tags dla zarządcy plików Caja ze środowiska MATE.
 
 %build
 %{__gtkdocize}
-%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -358,7 +356,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/caja-sendto/plugins
 %attr(755,root,root) %{_libdir}/caja-sendto/plugins/libnstremovable_devices.so
 %{_datadir}/glib-2.0/schemas/org.mate.Caja.Sendto.gschema.xml
-%{_datadir}/caja-extensions/caja-sendto.ui
 %{_datadir}/caja/extensions/libcaja-sendto.caja-extension
 %{_mandir}/man1/caja-sendto.1*
 
