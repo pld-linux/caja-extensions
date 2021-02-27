@@ -216,9 +216,7 @@ Summary(pl.UTF-8):	Dokumentacja API caja-sendto
 Group:		Documentation
 Requires:	gtk-doc-common
 Obsoletes:	mate-file-manager-sendto-apidocs
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n caja-extension-sendto-apidocs
 caja-sendto API documentation.
