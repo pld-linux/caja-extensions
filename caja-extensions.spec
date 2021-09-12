@@ -7,7 +7,7 @@ License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
 # Source0-md5:	5ae83289c885c243823a6f258e164c8e
-URL:		http://mate-desktop.org/
+URL:		https://wiki.mate-desktop.org/mate-desktop/components/caja-extensions/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	caja-devel >= 1.21.3
@@ -22,6 +22,7 @@ BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	mate-common
 BuildRequires:	mate-desktop-devel >= 1.17.0
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -42,7 +43,7 @@ Summary(pl.UTF-8):	Rozszerzenie gksu dla zarządcy plików Caja ze środowiska M
 Requires:	gksu
 Requires(post,postun):	glib2 >= 1:2.50.0
 Requires:	%{name} = %{version}-%{release}
-Obsoletes:	mate-file-manager-extension-gksu
+Obsoletes:	mate-file-manager-extension-gksu < 1.8.0
 
 %description -n caja-extension-gksu
 gksu extension for Caja (MATE file manager). It's a fork of
@@ -61,7 +62,7 @@ Suggests:	ImageMagick-coder-jpeg
 Suggests:	ImageMagick-coder-jpeg2
 Suggests:	ImageMagick-coder-png
 Suggests:	ImageMagick-coder-tiff
-Obsoletes:	mate-file-manager-extension-image-converter
+Obsoletes:	mate-file-manager-extension-image-converter < 1.8.0
 
 %description -n caja-extension-image-converter
 The Caja-Image-Converter extension allows you to resize/rotate images
@@ -84,7 +85,7 @@ Requires(post,postun):	glib2 >= 1:2.50.0
 Requires:	%{name} = %{version}-%{release}
 Requires:	mate-desktop-libs >= 1.17.0
 Requires:	mate-terminal
-Obsoletes:	mate-file-manager-extension-open-terminal
+Obsoletes:	mate-file-manager-extension-open-terminal < 1.8.0
 
 %description -n caja-extension-open-terminal
 This is a proof-of-concept Caja extension which allows you to open a
@@ -112,7 +113,7 @@ Suggests:	caja-extension-sendto-gajim
 Suggests:	caja-extension-sendto-pidgin
 Suggests:	caja-extension-sendto-upnp
 Suggests:	engrampa
-Obsoletes:	mate-file-manager-sendto
+Obsoletes:	mate-file-manager-sendto < 1.8.0
 
 %description -n caja-extension-sendto
 Caja sendto provides a Caja context menu for sending files via other
@@ -128,7 +129,7 @@ Summary:	caja-extension-sendto CD/DVD Creator plugin
 Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla kreatora CD/DVD
 Requires:	brasero
 Requires:	caja-extension-sendto = %{version}-%{release}
-Obsoletes:	mate-file-manager-sendto-burn
+Obsoletes:	mate-file-manager-sendto-burn < 1.8.0
 
 %description -n caja-extension-sendto-burn
 A caja-extension-sendto plugin for sending files to CD/DVD Creator
@@ -142,7 +143,7 @@ CD/DVD (Brasero).
 Summary:	caja-extension-sendto e-mail client plugin
 Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla klienta poczty elektronicznej
 Requires:	caja-extension-sendto = %{version}-%{release}
-Obsoletes:	mate-file-manager-sendto-emailclient
+Obsoletes:	mate-file-manager-sendto-emailclient < 1.8.0
 
 %description -n caja-extension-sendto-emailclient
 A caja-extension-sendto plugin for sending files via e-mail client.
@@ -160,7 +161,7 @@ Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla Gajima
 Requires:	caja-extension-sendto = %{version}-%{release}
 Requires:	dbus >= 1.0.2
 Requires:	gajim >= 0.10.1
-Obsoletes:	mate-file-manager-sendto-gajim
+Obsoletes:	mate-file-manager-sendto-gajim < 1.8.0
 
 %description -n caja-extension-sendto-gajim
 A caja-extension-sendto plugin for sending files via Gajim.
@@ -173,7 +174,7 @@ Summary:	caja-extension-sendto Pidgin plugin
 Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla Pidgina
 Requires:	caja-extension-sendto = %{version}-%{release}
 Requires:	pidgin >= 2.0
-Obsoletes:	mate-file-manager-sendto-pidgin
+Obsoletes:	mate-file-manager-sendto-pidgin < 1.8.0
 
 %description -n caja-extension-sendto-pidgin
 A caja-extension-sendto plugin for sending files via Pidgin.
@@ -186,7 +187,7 @@ Summary:	caja-extension-sendto UPnP media server plugin
 Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla serwera multimediów UPnP
 Requires:	caja-extension-sendto = %{version}-%{release}
 Requires:	gupnp-tools
-Obsoletes:	mate-file-manager-sendto-upnp
+Obsoletes:	mate-file-manager-sendto-upnp < 1.8.0
 
 %description -n caja-extension-sendto-upnp
 A caja-extension-sendto plugin for sending files to UPnP media server.
@@ -202,7 +203,7 @@ Group:		Development/Libraries
 # doesn't require base
 Requires:	glib2-devel >= 1:2.50.0
 Requires:	gtk+3-devel >= 3.22
-Obsoletes:	mate-file-manager-sendto-devel
+Obsoletes:	mate-file-manager-sendto-devel < 1.8.0
 
 %description -n caja-extension-sendto-devel
 Header files for caja-sendto extensions.
@@ -215,7 +216,7 @@ Summary:	caja-sendto API documentation
 Summary(pl.UTF-8):	Dokumentacja API caja-sendto
 Group:		Documentation
 Requires:	gtk-doc-common
-Obsoletes:	mate-file-manager-sendto-apidocs
+Obsoletes:	mate-file-manager-sendto-apidocs < 1.8.0
 BuildArch:	noarch
 
 %description -n caja-extension-sendto-apidocs
@@ -229,7 +230,7 @@ Summary:	Share extension for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenie share dla zarządcy plików Caja ze środowiska MATE
 Requires:	%{name} = %{version}-%{release}
 Requires:	samba-client
-Obsoletes:	mate-file-manager-extension-share
+Obsoletes:	mate-file-manager-extension-share < 1.8.0
 
 %description -n caja-extension-share
 Caja share extension allows you to quickly share a folder from the
