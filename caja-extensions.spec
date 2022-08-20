@@ -1,12 +1,12 @@
 Summary:	Extensions for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenia dla zarządcy plików Caja ze środowiska MATE
 Name:		caja-extensions
-Version:	1.26.0
-Release:	3
+Version:	1.26.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
-# Source0-md5:	5ae83289c885c243823a6f258e164c8e
+# Source0-md5:	6f254fff3ff8053a8f76cf2a43f4bce3
 URL:		https://wiki.mate-desktop.org/mate-desktop/components/caja-extensions/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
