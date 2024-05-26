@@ -1,12 +1,12 @@
 Summary:	Extensions for Caja (MATE file manager)
 Summary(pl.UTF-8):	Rozszerzenia dla zarządcy plików Caja ze środowiska MATE
 Name:		caja-extensions
-Version:	1.26.1
+Version:	1.28.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
-# Source0-md5:	6f254fff3ff8053a8f76cf2a43f4bce3
+Source0:	https://pub.mate-desktop.org/releases/1.28/%{name}-%{version}.tar.xz
+# Source0-md5:	364a23d43d4b10020448ec1f192497c0
 URL:		https://wiki.mate-desktop.org/mate-desktop/components/caja-extensions/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
@@ -15,6 +15,8 @@ BuildRequires:	dbus-devel >= 1.0.2
 BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.50.0
+BuildRequires:	gstreamer-devel >= 1.0
+BuildRequires:	gstreamer-plugins-base-devel >= 1.0
 BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	gupnp-devel >= 0.13
@@ -36,6 +38,18 @@ Extensions for Caja (MATE file manager).
 
 %description -l pl.UTF-8
 Rozszerzenia dla zarządcy plików Caja ze środowiska MATE.
+
+%package -n caja-extension-av
+Summary:	Audio/video properties extension for Caja (MATE file manager)
+Summary(pl.UTF-8):	Rozszerzenie własności audio/wideo dla zarządcy plików Caja ze środowiska MATE
+Requires:	%{name} = %{version}-%{release}
+
+%description -n caja-extension-av
+Audio/video (Totem) properties extension for Caja (MATE file manager).
+
+%description -n caja-extension-av -l pl.UTF-8
+Rozszerzenie własności audio/wideo (odtwarzacza Totem) dla zarządcy
+plików Caja ze środowiska MATE.
 
 %package -n caja-extension-gksu
 Summary:	gksu extension for Caja (MATE file manager)
@@ -328,6 +342,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %dir %{_datadir}/caja-extensions
+
+%files -n caja-extension-av
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-av.so
+%{_datadir}/caja/extensions/libcaja-av.caja-extension
 
 %files -n caja-extension-gksu
 %defattr(644,root,root,755)
