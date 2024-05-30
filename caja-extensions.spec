@@ -19,7 +19,7 @@ BuildRequires:	gstreamer-devel >= 1.0
 BuildRequires:	gstreamer-plugins-base-devel >= 1.0
 BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	gtk-doc >= 1.9
-BuildRequires:	gupnp-devel >= 0.13
+BuildRequires:	gupnp1.6-devel >= 1.6
 BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	mate-common
 BuildRequires:	mate-desktop-devel >= 1.17.0
@@ -120,7 +120,6 @@ Requires(post,postun):	glib2 >= 1:2.50.0
 Requires:	%{name} = %{version}-%{release}
 Requires:	dbus-glib >= 0.60
 Requires:	dbus-libs >= 1.0.2
-Requires:	gupnp >= 0.13
 Suggests:	caja-extension-sendto-burn
 Suggests:	caja-extension-sendto-emailclient
 Suggests:	caja-extension-sendto-gajim
@@ -201,6 +200,7 @@ Summary:	caja-extension-sendto UPnP media server plugin
 Summary(pl.UTF-8):	Wtyczka caja-extension-sendto dla serwera multimediów UPnP
 Requires:	caja-extension-sendto = %{version}-%{release}
 Requires:	gupnp-tools
+Requires:	gupnp1.6 >= 1.6
 Obsoletes:	mate-file-manager-sendto-upnp < 1.8.0
 
 %description -n caja-extension-sendto-upnp
